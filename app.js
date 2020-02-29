@@ -23,7 +23,7 @@ app.use('/', api)
 app.use(express.static('./api/public'));
 
 //Sets up mongoose connection with parameters to get rid of deprecation warnings
-mongoose.connect(mongo_uri, { useNewUrlParser: true,  dbName: "Users", useUnifiedTopology:true } )
+mongoose.connect(mongo_uri, { useNewUrlParser: true,  dbName: "Legend", useUnifiedTopology:true } )
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('debug', true);
@@ -33,11 +33,13 @@ const db = mongoose.connection;
 
 
 //Bind connection to error event (to get notification of connection errors)
+/*
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
   console.log('connected');
   app.listen(port, () => console.info(`REST API running on port ${port}`)); //comment out this line if not allowing access to db
 });
+*/
 
 //Comment out line below to test on heroku and make db connection
-//app.listen(port, () => console.info(`REST API running on port ${port}`));
+app.listen(port, () => console.info(`REST API running on port ${port}`));
