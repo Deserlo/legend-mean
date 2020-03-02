@@ -36,7 +36,7 @@ AdminSchema.pre('save', function(next) {
   });
 });
 
-var Admin  = mongoose.model('Admin Account', AdminSchema, 'User Info')
+var Admin  = mongoose.model('Admin Account', AdminSchema, 'Users')
 
 module.exports = (req, res, next) => {
   var admin = new Admin();
